@@ -5,7 +5,7 @@ import java.io.IOException;
 public class GamePanel extends JPanel {
     World world;
 
-    public GamePanel() throws IOException {
+    GamePanel() throws IOException {
         world= new World();
     }
 

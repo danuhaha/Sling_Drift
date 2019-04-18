@@ -10,50 +10,49 @@ import java.util.Scanner;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Main {
-    public static void main(String[] args) throws IOException,InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         JFrame frame = new JFrame();
-        GamePanel panel= new GamePanel();
+        GamePanel panel = new GamePanel();
+        SkinPanel skinChooser = new SkinPanel(panel);
         frame.setVisible(true);
-        frame.setSize(800,800);
+        frame.setSize(800, 800);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.add(panel);
-        KeyboardFocusManager manager= KeyboardFocusManager.getCurrentKeyboardFocusManager();
-        manager.addKeyEventDispatcher(new KeyEventDispatcher() {
-            @Override
-            public boolean dispatchKeyEvent(KeyEvent e) {
-                if (e.getID() == KeyEvent.KEY_PRESSED){
-                    if ( e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        panel.world.turning=true;
+        frame.add(skinChooser);
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(e -> {
+            if (e.getID() == KeyEvent.KEY_PRESSED) {
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    panel.world.turning = true;
 
 
-                    }
-                } else if (e.getID() == KeyEvent.KEY_RELEASED){
-                    if ( e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        panel.world.turning=false;
-
-                    }
                 }
-                return false;
+            } else if (e.getID() == KeyEvent.KEY_RELEASED) {
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    panel.world.turning = false;
+
+                }
             }
+            return false;
         });
 
-        while(true){
+
+        while (true) {
             Thread.sleep(10);
-            if(panel.world.car.isCollided()==false) {
+            if (skinChooser.chosen) {
+                frame.remove(skinChooser);
+                frame.add(panel);
+                frame.setVisible(true);
                 panel.world.update(10);
-                if (panel.world.turning == true) {
-                    if (panel.world.car.angle2>panel.world.car.angle1) {
-                        panel.world.car.angleA += 0.01;
-                    }  else {
-                         panel.world.car.angleA -= 0.01; 
+                if (panel.world.turning) {
+                    if (panel.world.car.angle2 > panel.world.car.angle1) {
+                        panel.world.car.angleA += 0.02;
+                    } else {
+                        panel.world.car.angleA -= 0.02;
                     }
                 }
-           }else{
-           
-           }
+            }
             frame.repaint();
-
         }
     }
 }
