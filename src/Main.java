@@ -15,10 +15,11 @@ public class Main {
         JFrame frame = new JFrame();
         GamePanel panel = new GamePanel();
         SkinPanel skinChooser = new SkinPanel(panel);
+        MenuPanel menu= new MenuPanel();
         frame.setVisible(true);
         frame.setSize(800, 800);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.add(skinChooser);
+        frame.add(menu);
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         manager.addKeyEventDispatcher(e -> {
             if (e.getID() == KeyEvent.KEY_PRESSED) {
@@ -39,8 +40,17 @@ public class Main {
 
         while (true) {
             Thread.sleep(10);
-            if (skinChooser.chosen) {
+            if(menu.skinPanelChosen){
+                frame.remove(menu);
+                frame.add(skinChooser);
+                frame.setVisible(true);
+            }
+            if(skinChooser.chosen){
                 frame.remove(skinChooser);
+                frame.add(menu);
+            }
+            if (menu.gamePanelChosen) {
+                frame.remove(menu);
                 frame.add(panel);
                 frame.setVisible(true);
                 panel.world.update(10);

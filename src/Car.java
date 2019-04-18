@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Line2D;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -58,7 +59,13 @@ public class Car {
     }
 
     public boolean youWin() {
-        return (x > 2200 && x < 2600) && y == -3890;
+        Line2D finishLine = new Line2D.Float(2200, -3990, 2600, -3990);
+        if (finishLine.intersects(this.getRectangle())) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public Rectangle getRectangle() {

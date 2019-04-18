@@ -16,42 +16,45 @@ public class Map {
     ArrayList<Line2D> rightSideLines = new ArrayList<Line2D>();
     ArrayList<Integer> cornersX = new ArrayList<Integer>();
     ArrayList<Integer> cornersY = new ArrayList<Integer>();
-    File leftSide = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/LeftBorder.txt");
-    File rightSide = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/RightBorder.txt");
-    File corners = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Corners.txt");
+    File leftSide = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/LeftBorder1.txt");
+    File rightSide = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/RightBorder1.txt");
+    File corners = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Corners1.txt");
     BufferedImage pin = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Pin.PNG"));
 
-    Map() throws IOException {
+    public Map() throws IOException {
         Scanner scanner1 = new Scanner(leftSide);
         Scanner scanner2 = new Scanner(rightSide);
         Scanner scanner3 = new Scanner(corners);
-        int i = 0;
-        while (i < 14) {
+
+        while (scanner1.hasNextInt()) {
             int x = scanner1.nextInt();
             int y = scanner1.nextInt();
             leftSidePointsX.add(x);
             leftSidePointsY.add(y);
-            i += 1;
+
         }
-        i = 0;
-        while (i < 14) {
+
+
+        while (scanner2.hasNextInt()) {
             int x = scanner2.nextInt();
             int y = scanner2.nextInt();
             rightSidePointsX.add(x);
             rightSidePointsY.add(y);
-            i += 1;
+
         }
-        i = 0;
-        while (i < 12) {
+
+
+        while (scanner3.hasNextInt()) {
             int x = scanner3.nextInt();
             int y = scanner3.nextInt();
             cornersX.add(x);
             cornersY.add(y);
-            i += 1;
+
         }
 
+
         for (int j = 0; j < leftSidePointsX.size() - 1; j++) {
-            leftSideLines.add(new Line2D.Float((leftSidePointsX.get(j)), (leftSidePointsY.get(j)), (leftSidePointsX.get(j + 1)), (leftSidePointsY.get(j + 1))));
+            leftSideLines.add(new Line2D.Float((leftSidePointsX.get(j)), (leftSidePointsY.get(j)), (leftSidePointsX.get(j + 1)), (int) (leftSidePointsY.get(j + 1))));
         }
         for (int j = 0; j < rightSidePointsX.size() - 1; j++) {
             rightSideLines.add(new Line2D.Float((rightSidePointsX.get(j)), (rightSidePointsY.get(j)), (rightSidePointsX.get(j + 1)), (rightSidePointsY.get(j + 1))));
