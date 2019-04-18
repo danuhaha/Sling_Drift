@@ -19,7 +19,7 @@ class SkinPanel extends JPanel {
     SkinPanel(GamePanel gamePanel) throws IOException {
         setLayout(null);
         JLabel label = new JLabel("Choose your car");
-        label.setBounds(280, 25, 400, 35);
+        label.setBounds(280, 55, 400, 35);
         label.setFont(new Font(label.getFont().getName(), Font.PLAIN, 30));
         resize();
         JButton skin1Button = new JButton(skin1Image);
@@ -62,10 +62,10 @@ class SkinPanel extends JPanel {
         Image sk2 = skin2Image.getImage();
         Image sk3 = skin3Image.getImage();
         Image sk4 = skin4Image.getImage();
-        Image sk1Res = sk1.getScaledInstance(200, 200, Image.SCALE_REPLICATE);
+        Image sk1Res = sk1.getScaledInstance(180, 200, Image.SCALE_REPLICATE);
         Image sk2Res = sk2.getScaledInstance(200, 200, Image.SCALE_REPLICATE);
         Image sk3Res = sk3.getScaledInstance(200, 200, Image.SCALE_REPLICATE);
-        Image sk4Res = sk4.getScaledInstance(200, 200, Image.SCALE_REPLICATE);
+        Image sk4Res = sk4.getScaledInstance(180, 200, Image.SCALE_REPLICATE);
         skin1Image = new ImageIcon(sk1Res);
         skin2Image = new ImageIcon(sk2Res);
         skin3Image = new ImageIcon(sk3Res);

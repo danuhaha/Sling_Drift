@@ -65,7 +65,6 @@ public class Car {
         } else {
             return false;
         }
-
     }
 
     public Rectangle getRectangle() {
