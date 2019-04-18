@@ -17,7 +17,7 @@ public class Car {
     double prevX;
     double prevY;
     Vector2 vel;
-    BufferedImage skin = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Red.png"));
+    BufferedImage skin = ImageIO.read(Car.class.getResourceAsStream("Red.png"));
     Rectangle rect;
     int[] xCorners = new int[12];
     int[] yCorners = new int[12];

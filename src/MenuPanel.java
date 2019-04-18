@@ -1,13 +1,28 @@
+import sun.misc.IOUtils;
+import sun.swing.ImageIconUIResource;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
-public class MenuPanel extends JPanel {
+public class MenuPanel extends JPanel  {
     boolean skinPanelChosen = false;
     boolean gamePanelChosen = false;
-    ImageIcon play = new ImageIcon("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/PlayButton.png");
-    ImageIcon skin = new ImageIcon("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/skin.png");
+    BufferedImage playImage;
+    BufferedImage skinImage;
 
-    MenuPanel() {
+
+
+
+    MenuPanel() throws  IOException{
+        playImage= ImageIO.read(MenuPanel.class.getResourceAsStream("PlayButton.PNG"));
+        skinImage= ImageIO.read(MenuPanel.class.getResourceAsStream("skin.PNG"));
+         ImageIcon play = new ImageIcon(playImage);
+         ImageIcon skin = new ImageIcon(skinImage);
         setLayout(null);
         JLabel playlabel = new JLabel("Play");
         JLabel choose= new JLabel("Choose the skin");
@@ -32,5 +47,6 @@ public class MenuPanel extends JPanel {
         add(choose);
         add(playlabel);
     }
+
 
 }

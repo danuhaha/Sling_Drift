@@ -4,6 +4,7 @@ import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,10 +17,10 @@ public class Map {
     ArrayList<Line2D> rightSideLines = new ArrayList<Line2D>();
     ArrayList<Integer> cornersX = new ArrayList<Integer>();
     ArrayList<Integer> cornersY = new ArrayList<Integer>();
-    File leftSide = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/LeftBorder1.txt");
-    File rightSide = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/RightBorder1.txt");
-    File corners = new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Corners1.txt");
-    BufferedImage pin = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Pin.PNG"));
+     InputStream leftSide = Map.class.getResourceAsStream("LeftBorder1.txt");
+     InputStream rightSide = Map.class.getResourceAsStream("RightBorder1.txt");
+     InputStream corners = Map.class.getResourceAsStream("Corners1.txt");
+    BufferedImage pin = ImageIO.read(Map.class.getResourceAsStream("Pin.PNG"));
 
     public Map() throws IOException {
         Scanner scanner1 = new Scanner(leftSide);

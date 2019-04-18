@@ -6,10 +6,10 @@ import java.io.File;
 import java.io.IOException;
 
 class SkinPanel extends JPanel {
-    BufferedImage skin1 = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Blue.PNG"));
-    BufferedImage skin2 = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/LightBlue.PNG"));
-    BufferedImage skin3 = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Red.png"));
-    BufferedImage skin4 = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Green.PNG"));
+    BufferedImage skin1 = ImageIO.read(SkinPanel.class.getResourceAsStream("Blue.PNG"));
+    BufferedImage skin2 = ImageIO.read(SkinPanel.class.getResourceAsStream("LightBlue.PNG"));
+    BufferedImage skin3 = ImageIO.read(SkinPanel.class.getResourceAsStream("Red.png"));
+    BufferedImage skin4 = ImageIO.read(SkinPanel.class.getResourceAsStream("Green.PNG"));
     ImageIcon skin1Image = new ImageIcon(skin1);
     ImageIcon skin2Image = new ImageIcon(skin2);
     ImageIcon skin3Image = new ImageIcon(skin3);

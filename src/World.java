@@ -11,7 +11,7 @@ class World {
     Map map;
     Sling sling;
     boolean turning = false;
-    BufferedImage youWin = ImageIO.read(new File("/Users/danuhaha/IdeaProjects/Sling_Drift/Resources/Youwin.png"));
+    BufferedImage youWin = ImageIO.read(World.class.getResourceAsStream("Youwin.png"));
 
 
     World() throws IOException {
