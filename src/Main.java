@@ -33,6 +33,10 @@ public class Main {
                     menu.gamePanelChosen = false;
                     skinChooser.chosen=false;
                     frame.add(menu);
+                    panel.world.car.x=340;
+                    panel.world.car.y=750;
+                    panel.world.car.vel= new Vector2(0, -4);
+                    panel.world.car.angleCar = 0;
                 }
             } else if (e.getID() == KeyEvent.KEY_RELEASED) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -59,7 +63,6 @@ public class Main {
             if(levels.levelChosen){
                 frame.remove(levels);
                 frame.add(menu);
-
             }
             if(skinChooser.chosen){
                 frame.remove(skinChooser);

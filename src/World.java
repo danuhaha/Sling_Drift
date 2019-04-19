@@ -58,6 +58,9 @@ class World {
                     car.driveForward();
                 }
             }
+        } else {
+
+
         }
     }
 }
