@@ -35,8 +35,11 @@ public class Main {
                     frame.add(menu);
                     panel.world.car.x=340;
                     panel.world.car.y=750;
-                    panel.world.car.vel= new Vector2(0, -4);
+                    panel.world.car.vel.x=0;
+                    panel.world.car.vel.y=-4;
                     panel.world.car.angleCar = 0;
+                    panel.world.car.angleA=0;
+                    panel.world.car.closest=0;
                 }
             } else if (e.getID() == KeyEvent.KEY_RELEASED) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
