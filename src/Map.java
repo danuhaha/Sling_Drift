@@ -17,9 +17,9 @@ public class Map {
     ArrayList<Line2D> rightSideLines = new ArrayList<Line2D>();
     ArrayList<Integer> cornersX = new ArrayList<Integer>();
     ArrayList<Integer> cornersY = new ArrayList<Integer>();
-     InputStream leftSide = Map.class.getResourceAsStream("LeftBorder1.txt");
-     InputStream rightSide = Map.class.getResourceAsStream("RightBorder1.txt");
-     InputStream corners = Map.class.getResourceAsStream("Corners1.txt");
+    InputStream leftSide = Map.class.getResourceAsStream("LeftBorder1.txt");
+    InputStream rightSide = Map.class.getResourceAsStream("RightBorder1.txt");
+    InputStream corners = Map.class.getResourceAsStream("Corners1.txt");
     BufferedImage pin = ImageIO.read(Map.class.getResourceAsStream("Pin.PNG"));
 
     public Map() throws IOException {

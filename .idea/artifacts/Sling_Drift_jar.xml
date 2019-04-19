@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Sling_Drift:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Sling_Drift_jar</output-path>
+    <root id="archive" name="Sling_Drift.jar">
+      <element id="module-output" name="Sling_Drift" />
+    </root>
+  </artifact>
+</component>

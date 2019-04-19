@@ -12,6 +12,8 @@ import java.nio.file.StandardCopyOption;
 public class MenuPanel extends JPanel  {
     boolean skinPanelChosen = false;
     boolean gamePanelChosen = false;
+    boolean levelPanelChosen=false;
+    BufferedImage levelImage;
     BufferedImage playImage;
     BufferedImage skinImage;
 
@@ -19,33 +21,48 @@ public class MenuPanel extends JPanel  {
 
 
     MenuPanel() throws  IOException{
-        playImage= ImageIO.read(MenuPanel.class.getResourceAsStream("PlayButton.PNG"));
-        skinImage= ImageIO.read(MenuPanel.class.getResourceAsStream("skin.PNG"));
+        levelImage= ImageIO.read(MenuPanel.class.getResourceAsStream("levels.png")) ;
+        playImage= ImageIO.read(MenuPanel.class.getResourceAsStream("PlayButton.png"));
+        skinImage= ImageIO.read(MenuPanel.class.getResourceAsStream("skin.png"));
          ImageIcon play = new ImageIcon(playImage);
          ImageIcon skin = new ImageIcon(skinImage);
+        ImageIcon levels= new ImageIcon(levelImage);
         setLayout(null);
         JLabel playlabel = new JLabel("Play");
-        JLabel choose= new JLabel("Choose the skin");
+        JLabel skinLabel= new JLabel("Choose the skin");
+        JLabel levelsLabel = new JLabel("Choose the level");
         playlabel.setFont(new Font(playlabel.getFont().getName(), Font.PLAIN, 20));
-        choose.setFont(new Font(choose.getFont().getName(), Font.PLAIN, 20));
+        levelsLabel.setFont(new Font(levelsLabel.getFont().getName(), Font.PLAIN, 20));
+        skinLabel.setFont(new Font(skinLabel.getFont().getName(), Font.PLAIN, 20));
+        skinLabel.setBounds(60,435,325,20);
+        playlabel.setBounds(360,435,300,20);
+        levelsLabel.setBounds(560,435,300,20);
+
+        JButton levelSelector = new JButton(levels);
         JButton skinPanel = new JButton(skin);
-        skinPanel.setBounds(80, 200, 325, 325);
-        choose.setBounds(170,435,325,20);
-        playlabel.setBounds(490,435,300,20);
-        skinPanel.setBorder(BorderFactory.createLineBorder(Color.white, 0));
         JButton gamePanel = new JButton(play);
-        gamePanel.setBounds(350, 200, 325, 325);
+
+        skinPanel.setBounds(30, 250, 200, 200);
+        skinPanel.setBorder(BorderFactory.createLineBorder(Color.white, 0));
+        gamePanel.setBounds(280, 250, 200, 200);
         gamePanel.setBorder(BorderFactory.createLineBorder(Color.white, 0));
+        levelSelector.setBounds(530,250,220,200);
+        levelSelector.setBorder(BorderFactory.createLineBorder(Color.white, 0));
         skinPanel.addActionListener(e -> {
             skinPanelChosen = true;
         });
         gamePanel.addActionListener(e -> {
             gamePanelChosen = true;
         });
+        levelSelector.addActionListener(e -> {
+            levelPanelChosen = true;
+        });
         add(gamePanel);
         add(skinPanel);
-        add(choose);
+        add(levelSelector);
+        add(skinLabel);
         add(playlabel);
+        add(levelsLabel);
     }
 
 

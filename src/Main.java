@@ -16,6 +16,7 @@ public class Main {
         GamePanel panel = new GamePanel();
         SkinPanel skinChooser = new SkinPanel(panel);
         MenuPanel menu= new MenuPanel();
+        LevelPanel levels = new LevelPanel(panel);
         frame.setVisible(true);
         frame.setSize(800, 800);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -25,8 +26,13 @@ public class Main {
             if (e.getID() == KeyEvent.KEY_PRESSED) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                     panel.world.turning = true;
-
-
+                }
+                if (e.getKeyCode()== KeyEvent.VK_ENTER){
+                    frame.remove(panel);
+                    menu.skinPanelChosen = false;
+                    menu.gamePanelChosen = false;
+                    skinChooser.chosen=false;
+                    frame.add(menu);
                 }
             } else if (e.getID() == KeyEvent.KEY_RELEASED) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -44,6 +50,16 @@ public class Main {
                 frame.remove(menu);
                 frame.add(skinChooser);
                 frame.setVisible(true);
+            }
+            if(menu.levelPanelChosen){
+                frame.remove(menu);
+                frame.add(levels);
+                frame.setVisible(true);
+            }
+            if(levels.levelChosen){
+                frame.remove(levels);
+                frame.add(menu);
+
             }
             if(skinChooser.chosen){
                 frame.remove(skinChooser);
