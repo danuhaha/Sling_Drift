@@ -10,4 +10,4 @@ You need to avoid crashing into the walls and reach the finish line, having perf
 2. Double click on the installed file
 3. Enjoy the game!
 ## Screenshots
-![Sling Drift](https://raw.github.com/danuhaha/Sling_Drift/master/https://github.com/danuhaha/Sling_Drift/blob/master/181A6392-57EB-45EC-8DBA-6CF8D1D42D03.jpeg)
+![Sling Drift](https://github.com/danuhaha/Sling_Drift/blob/master/181A6392-57EB-45EC-8DBA-6CF8D1D42D03.jpeg)
