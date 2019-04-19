@@ -7,6 +7,6 @@ You need to avoid crashing into the walls and reach the finish line, having perf
 2. ~~It's the only control key this game has...~~
 ## How to run Sling Drift on MAC or Windows
 1. Install the **.jar** file from the release
-2. Double click the installed file
-3. Enjoy my game!
+2. Double click on the installed file
+3. Enjoy the game!
 ## Screenshots
